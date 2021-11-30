@@ -43,4 +43,13 @@ public class GameTest {
         bowlingGame.roll(5);
         assertThat(bowlingGame.getScore()).isEqualTo(20);
     }
+
+    @Test
+    void should_return_score_16_for_a_strike_followed_by_1_and_2() {
+        BowlingGame bowlingGame = new BowlingGame();
+        bowlingGame.roll(10);
+        bowlingGame.roll(1);//spare
+        bowlingGame.roll(2);
+        assertThat(bowlingGame.getScore()).isEqualTo(16);
+    }
 }
