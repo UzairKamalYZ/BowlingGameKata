@@ -6,10 +6,18 @@ public class BowlingGame {
 
     public void roll(int pins) {
 
-        rolls[roll++] = pins;
-        if (pins == 10) {
-            roll++;
+        if (roll == 20) {
+            int frameScore = rolls[18] + rolls[19];
+            if (frameScore == 10) {
+                rolls[20] = pins;
+            }
+        } else if (roll < 20) {
+            rolls[roll++] = pins;
+            if (pins == 10) {
+                roll++;
+            }
         }
+
     }
 
     public int[] getRolls() {
