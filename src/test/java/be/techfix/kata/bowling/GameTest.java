@@ -23,9 +23,24 @@ public class GameTest {
         BowlingGame bowlingGame = new BowlingGame();
         bowlingGame.roll(7);
         bowlingGame.roll(3);
-        for (int i = 2; i < 20; i++) {
-            bowlingGame.roll(0);
-        }
         assertThat(bowlingGame.getScore()).isEqualTo(10);
+    }
+
+    @Test
+    void should_return_score_12_for_a_spare_and_roll_of_1(){
+        BowlingGame bowlingGame = new BowlingGame();
+        bowlingGame.roll(7);
+        bowlingGame.roll(3);//spare
+        bowlingGame.roll(1);
+        assertThat(bowlingGame.getScore()).isEqualTo(12);
+    }
+
+    @Test
+    void should_return_score_20_for_a_spare_and_roll_of_5(){
+        BowlingGame bowlingGame = new BowlingGame();
+        bowlingGame.roll(5);
+        bowlingGame.roll(5);//spare
+        bowlingGame.roll(5);
+        assertThat(bowlingGame.getScore()).isEqualTo(20);
     }
 }
