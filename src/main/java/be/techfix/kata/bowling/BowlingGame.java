@@ -32,6 +32,7 @@ public class BowlingGame {
             int secondRole = rol + 1;
             int nextFrame1stRol = rol + 2;
             int nextFrame2ndRol = rol + 3;
+            int nextToNextFrame1stRoll = rol + 4;
             int frameScore = 0;
 
             if (secondRole < rolls.length) {
@@ -43,8 +44,14 @@ public class BowlingGame {
 
 
             if (rolScore == 10) {
+
                 if (isNextFrameAvailable(nextFrame1stRol)) {
-                    int strikeBonus = rolls[nextFrame1stRol] + rolls[nextFrame2ndRol];
+                    int strikeBonus = 0;
+                    if (isNextFrameHasStrike(nextFrame1stRol)) {
+                        strikeBonus = rolls[nextFrame1stRol] + getNextToNextFrame1stRole(nextToNextFrame1stRoll);
+                    } else {
+                        strikeBonus = rolls[nextFrame1stRol] + rolls[nextFrame2ndRol];
+                    }
                     score += strikeBonus;
                 }
             } else if (frameScore == 10) {
@@ -55,8 +62,17 @@ public class BowlingGame {
         return score;
     }
 
+    private int getNextToNextFrame1stRole(int nextToNextFrame1stRoll) {
+        if (nextToNextFrame1stRoll >= rolls.length) return 0;
+        return rolls[nextToNextFrame1stRoll];
+    }
+
     private boolean isNextFrameAvailable(int rol) {
 
         return (rol < rolls.length);
+    }
+
+    private boolean isNextFrameHasStrike(int index) {
+        return rolls[index] == 10;
     }
 }

@@ -75,6 +75,16 @@ public class GameTest {
     }
 
     @Test
+    void shoudl_have_score_53_for_double_stricke_followed_by_5_and_4(){
+        BowlingGame bowlingGame = new BowlingGame();
+        bowlingGame.roll(10);
+        bowlingGame.roll(10);
+        bowlingGame.roll(5);
+        bowlingGame.roll(4);
+        assertThat(bowlingGame.getScore()).isEqualTo(53);
+    }
+
+    @Test
     void should_return_score_42_for_a_strike_followed_by_1_and_2_and_a_spare_followed_by_1() {
         BowlingGame bowlingGame = new BowlingGame();
         bowlingGame.roll(5);
