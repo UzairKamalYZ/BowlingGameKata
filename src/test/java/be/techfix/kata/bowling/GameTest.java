@@ -65,6 +65,7 @@ public class GameTest {
         assertThat(bowlingGame.getRolls()[20]).isEqualTo(0);
 
     }
+
     @Test
     void should_have_frame_of_3_rolls_when_strike_happens_at_10th_frame() {
         BowlingGame bowlingGame = new BowlingGame();
@@ -75,13 +76,24 @@ public class GameTest {
     }
 
     @Test
-    void shoudl_have_score_53_for_double_stricke_followed_by_5_and_4(){
+    void shoudl_have_score_53_for_double_strike_followed_by_5_and_4() {
         BowlingGame bowlingGame = new BowlingGame();
         bowlingGame.roll(10);
         bowlingGame.roll(10);
         bowlingGame.roll(5);
         bowlingGame.roll(4);
         assertThat(bowlingGame.getScore()).isEqualTo(53);
+    }
+
+    @Test
+    void shoudl_have_score_82_for_triple_strike_followed_by_5_and_4() {
+        BowlingGame bowlingGame = new BowlingGame();
+        bowlingGame.roll(10);
+        bowlingGame.roll(10);
+        bowlingGame.roll(10);
+        bowlingGame.roll(5);
+        bowlingGame.roll(4);
+        assertThat(bowlingGame.getScore()).isEqualTo(83);
     }
 
     @Test
