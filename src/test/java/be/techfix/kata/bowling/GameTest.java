@@ -102,23 +102,7 @@ public class GameTest {
 
     private void rollTill10thFrameWithValue(BowlingGame bowlingGame, int pins) {
         bowlingGame.roll(pins);
-        bowlingGame.roll(3);
-        bowlingGame.roll(3);
-        bowlingGame.roll(3);
-        bowlingGame.roll(3);
-        bowlingGame.roll(3);
-        bowlingGame.roll(3);
-        bowlingGame.roll(3);
-        bowlingGame.roll(3);
-        bowlingGame.roll(3);
-        bowlingGame.roll(3);
-        bowlingGame.roll(3);
-        bowlingGame.roll(3);
-        bowlingGame.roll(3);
-        bowlingGame.roll(3);
-        bowlingGame.roll(3);
-        bowlingGame.roll(3);
-        bowlingGame.roll(3);
+        bowlingGame.rollMulti(3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3);
     }
 
 
