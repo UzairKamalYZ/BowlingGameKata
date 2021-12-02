@@ -78,42 +78,27 @@ public class GameTest {
     @Test
     void shoudl_have_score_53_for_double_strike_followed_by_5_and_4() {
         BowlingGame bowlingGame = new BowlingGame();
-        bowlingGame.roll(10);
-        bowlingGame.roll(10);
-        bowlingGame.roll(5);
-        bowlingGame.roll(4);
+        bowlingGame.rollMulti(10,10,5,4);
         assertThat(bowlingGame.getScore()).isEqualTo(53);
     }
 
     @Test
     void shoudl_have_score_82_for_triple_strike_followed_by_5_and_4() {
         BowlingGame bowlingGame = new BowlingGame();
-        bowlingGame.roll(10);
-        bowlingGame.roll(10);
-        bowlingGame.roll(10);
-        bowlingGame.roll(5);
-        bowlingGame.roll(4);
+        bowlingGame.rollMulti(10,10,10,5,4);
         assertThat(bowlingGame.getScore()).isEqualTo(83);
     }
 
     @Test
     void should_return_score_42_for_a_strike_followed_by_1_and_2_and_a_spare_followed_by_1() {
         BowlingGame bowlingGame = new BowlingGame();
-        bowlingGame.roll(5);
-        bowlingGame.roll(1);
-        bowlingGame.roll(10);//Strike
-        bowlingGame.roll(1);
-        bowlingGame.roll(2);
-        bowlingGame.roll(7);
-        bowlingGame.roll(1);
-        bowlingGame.roll(5);//spare
-        bowlingGame.roll(5);
-        bowlingGame.roll(1);
+        bowlingGame.rollMulti(5,1,10,1,2,7,1,5,5,1);
 
         // 5+1{10+1+2+1+2}+7+1+( 5+5+1)+1
         assertThat(bowlingGame.getScore()).isEqualTo(42);
 
     }
+
 
     private void rollTill10thFrameWithValue(BowlingGame bowlingGame, int pins) {
         bowlingGame.roll(pins);
@@ -135,4 +120,6 @@ public class GameTest {
         bowlingGame.roll(3);
         bowlingGame.roll(3);
     }
+
+
 }

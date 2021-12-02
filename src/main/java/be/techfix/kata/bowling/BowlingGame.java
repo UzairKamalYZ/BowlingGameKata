@@ -20,6 +20,12 @@ public class BowlingGame {
 
     }
 
+    public void rollMulti(int... pins){
+        for(int p: pins){
+            roll(p);
+        }
+    }
+
     public int[] getRolls() {
         return rolls;
     }
